@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeCraft - Resume Builder</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <header class="topbar">
+        <span class="logo">ResumeCraft</span>
+        <span class="topbar-note">Free resume builder</span>
+    </header>
+
+    
+    <section class="intro" id="top">
+        <div class="intro-text">
+            <h1>A professional resume,<br>made in minutes.</h1>
+            <p>Fill in your details on the left. Your resume updates on the right as you type.</p>
+        </div>
+    </section>
+
+    <main class="container">
+
+        
+        <section class="form-section">
+            <h2>Your details</h2>
+
+            <label for="template">Template</label>
+            <select id="template" onchange="changeTemplate()">
+                <option value="modern">Modern</option>
+                <option value="classic">Classic</option>
+                <option value="noir">Noir sidebar</option>
+                <option value="lime">Lime accent</option>
+                <option value="bold">Bold yellow</option>
+                <option value="minimal">Minimal line</option>
+                <option value="slate">Slate with photo</option>
+            </select>
+
+            <label for="name">Name</label>
+            <input id="name" placeholder="Your full name" oninput="updateResume()">
+
+            <label for="job">Job title</label>
+            <input id="job" placeholder="e.g. Web Developer" oninput="updateResume()">
+
+            <label for="photo">Photo (used by Noir, Lime, Bold and Slate)</label>
+            <input id="photo" type="file" accept="image/*" onchange="handlePhoto(event)">
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@email.com" oninput="updateResume()">
+
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit phone number" oninput="updateResume()">
+
+            <label for="summary">Professional summary</label>
+            <textarea id="summary"
+                      placeholder="A short introduction about yourself..."
+                      oninput="updateResume()"></textarea>
+
+            <label for="education">Education</label>
+            <textarea id="education"
+                      placeholder="Degree, college, graduation year"
+                      oninput="updateResume()"></textarea>
+
+            <label for="skills">Skills</label>
+            <textarea id="skills"
+                      placeholder="HTML, CSS, JavaScript..."
+                      oninput="updateResume()"></textarea>
+
+            <label for="experience">Work experience / projects</label>
+            <textarea id="experience"
+                      placeholder="Describe your work or projects..."
+                      oninput="updateResume()"></textarea>
+
+            <button onclick="downloadResume()">Download as PDF</button>
+        </section>
+
+        
+        <section class="preview-section">
+            <h2>Live preview</h2>
+
+            <div id="resume" class="resume t-modern">
+
+                <div id="previewPhoto" class="r-photo"></div>
+
+                <div class="r-head">
+                    <h1 id="previewName">Your Name</h1>
+                    <h3 id="previewJob">Your Job Title</h3>
+                </div>
+
+                <div class="side"></div>
+                <div class="main"></div>
+
+                <div class="parts" hidden>
+                    <div id="sec-contact" class="sec">
+                        <h3>Contact</h3>
+                        <p id="previewContact">Email
+Phone</p>
+                    </div>
+                    <div id="sec-summary" class="sec">
+                        <h3>Professional Summary</h3>
+                        <p id="previewSummary">Your summary will appear here.</p>
+                    </div>
+                    <div id="sec-education" class="sec">
+                        <h3>Education</h3>
+                        <p id="previewEducation">Your education will appear here.</p>
+                    </div>
+                    <div id="sec-skills" class="sec">
+                        <h3>Skills</h3>
+                        <ul id="previewSkills"><li>Your skills will appear here.</li></ul>
+                    </div>
+                    <div id="sec-experience" class="sec">
+                        <h3>Experience / Projects</h3>
+                        <p id="previewExperience">Your experience will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p class="f-line">Your next role starts with a <em>better layout</em>.<br>Fast, responsive, and <em>free forever</em>.</p>
+                <p class="f-line f-light">Export clean PDFs in <em>one click</em>.<br>Start your story with <em>ResumeCraft</em>.</p>
+            </div>
+            <nav class="footer-cols">
+                <div>
+                    <h4>Artists</h4>
+                    <a href="https://github.com/byprixi" target="_blank" rel="noopener">Priyanshu</a>
+                    <a href="https://github.com/tanujapremalatha" target="_blank" rel="noopener">Tanuja S</a>
+                    <a href="https://github.com/jasmeen-14" target="_blank" rel="noopener">Jasmeen</a>
+                </div>
+            </nav>
+        </div>
+        <div class="wordmark" aria-hidden="true">ResumeCraft</div><br>
+        <p class="copyright">&copy; 2026 ResumeCraft, All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
